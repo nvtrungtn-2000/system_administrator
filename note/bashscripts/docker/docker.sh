@@ -10,7 +10,7 @@ update_and_upgrade() {
 check_and_add_to_install() {
   package_name=$1
   if ! dpkg -l | grep -q $package_name; then
-    B+=("$package_name")
+    install_packages+=("$package_name")
   fi
 }
 for package in "$required_packages{[@]}"; do
