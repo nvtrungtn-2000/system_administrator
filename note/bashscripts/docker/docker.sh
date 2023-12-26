@@ -36,6 +36,9 @@ install_docker() {
 
         if sudo systemctl status docker &>/dev/null; then
             echo "Docker đã được cài đặt thành công."
+            sudo groupadd docker
+            sudo usermod -aG docker $USER
+            sudo systemctl status docker
             docker --version
         else
             echo "Có lỗi xảy ra trong quá trình cài đặt Docker."
