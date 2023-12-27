@@ -1,5 +1,5 @@
 #!/bin/bash
-[ $EUID -eq 0 ] && echo "Bạn đã đăng nhập bằng quyền root." || echo "Bạn chưa đăng nhập bằng quyền root."
+[ $EUID -eq 0 ] && echo "Bạn đã đăng nhập bằng quyền root." || { echo "Bạn chưa đăng nhập bằng quyền root."; exit 1; }
 
 if sudo systemctl status docker &>/dev/null; then
     echo "Docker đã được cài đặt thành công."
