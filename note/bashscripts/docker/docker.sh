@@ -3,11 +3,11 @@
 
 required_packages=("apt-transport-https" "ca-certificates" "curl" "gnupg" "lsb-release" "nano" "firewalld" "gnupg-agent" "software-properties-common")
 
-update_and_upgrade() {
+function update_and_upgrade() {
     sudo apt-get update -y && sudo apt-get upgrade -y
 }
 
-check_and_install_package() {
+function check_and_install_package() {
     package_name=$1
     if ! dpkg -l | grep -q $package_name; then
         echo "Gói $package_name chưa tồn tại, đang cài đặt..."
@@ -25,7 +25,7 @@ for package in "${required_packages[@]}"; do
     check_and_install_package $package
 done
 
-install_docker() {
+function install_docker() {
     if docker --version &>/dev/null; then
         echo "Docker đã được cài đặt. Bỏ qua quá trình cài đặt."
     else

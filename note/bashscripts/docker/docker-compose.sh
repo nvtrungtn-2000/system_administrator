@@ -14,7 +14,7 @@ else
     fi
 fi
 
-install_docker_compose() {
+function install_docker_compose() {
     if docker-compose --version &>/dev/null; then
         echo "Docker Compose đã được cài đặt. Bỏ qua quá trình cài đặt."
         docker-compose --version
