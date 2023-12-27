@@ -1,5 +1,5 @@
 #!/bin/bash
-[ $EUID -eq 0 ] && echo "Bạn đã đăng nhập bằng quyền root." || echo "Bạn chưa đăng nhập bằng quyền root."
+[ $EUID -eq 0 ] && echo "Bạn đã đăng nhập bằng quyền root." || { echo "Bạn chưa đăng nhập bằng quyền root."; exit 1 }
 
 required_packages=("apt-transport-https" "ca-certificates" "curl" "gnupg" "lsb-release" "nano" "firewalld" "gnupg-agent" "software-properties-common")
 
