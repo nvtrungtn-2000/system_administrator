@@ -1,6 +1,5 @@
 #!/bin/bash
-
-[ $EUID -eq 0 ] && echo "Bạn đã đăng nhập bằng quyền root." || { echo "Bạn chưa đăng nhập bằng quyền root."; exit 1; }
+[ $EUID -eq 0 ] && echo "Bạn đã đăng nhập bằng quyền root." || { echo "Bạn cần đăng nhập bằng quyền root để chạy script."; exit 1; }
 
 function uninstall_docker() {
     echo "Bạn đang chạy chương trình gỡ Docker."
